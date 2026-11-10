@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#07090a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Mystery Machine" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icons/favicon.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <title>Mystery Machine</title>
+    <script type="module" crossorigin src="./assets/index-BNREr9kW.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BWVY3wel.css">
+  </head>
+  <body>
+    <main id="stage" aria-label="Mystery Machine">
+      <canvas id="screen" role="img" aria-label="Eine geheimnisvolle Walzenmaschine in einem dunklen Kontrollraum im U-Bahn-Schacht"></canvas>
+
+      <div id="ui">
+        <div class="plaque" id="counter" aria-live="polite">
+          <div class="plaque__num" id="funken">0</div>
+          <div class="plaque__sub" id="rate">Funken</div>
+        </div>
+        <div class="goal" id="goal" hidden>
+          <div class="goal__bar"><i id="goal-fill"></i></div>
+          <div class="goal__txt" id="goal-txt"></div>
+        </div>
+
+        <button class="iconbtn" id="sound" aria-label="Einstellungen"></button>
+
+        <button class="hit" id="pull-window" aria-label="Hebel ziehen"></button>
+        <button class="hit" id="pull-lever" aria-label="Hebel ziehen"></button>
+        <div class="hint" id="hint" hidden>Hebel ziehen</div>
+
+        <div class="winplate" id="winplate"></div>
+        <div id="floaters" aria-hidden="true"></div>
+        <button class="story" id="story" type="button" hidden aria-label="Weiter">
+          <span class="story__head"><img id="story-ico" alt=""><span id="story-who"></span></span>
+          <span class="story__text" id="story-text"></span>
+          <span class="story__more" aria-hidden="true">▼</span>
+        </button>
+
+        <div class="ns-tag" id="ns-tag" role="group" aria-label="Notschalter" hidden>
+          <p class="ns-tag__msg" id="ns-msg"></p>
+          <p class="ns-tag__row"><span>Einsatz <b id="ns-stake">0</b></span><span>Erfolg <b id="ns-chance">60 %</b></span></p>
+          <div class="ns-tag__foot">
+            <span class="ns-tag__hint" id="ns-hint">Erst Klappe, dann Knopf</span>
+            <span class="ns-tag__fuse" aria-hidden="true"><span id="ns-fuse"></span></span>
+            <button class="ns-tag__ignore" id="ns-ignore">Ignorieren</button>
+          </div>
+        </div>
+        <button class="hit" id="ns-btn" aria-label="Schutzklappe öffnen" hidden></button>
+        <button class="plan" id="plan" type="button" hidden></button>
+        <div class="plan-list" id="plan-list" hidden></div>
+        <div class="boost" id="boost" hidden></div>
+        <div class="swing" id="swing" hidden aria-hidden="true"></div>
+        <button class="post" id="post" type="button" hidden aria-label="Rohrpost öffnen"></button>
+        <div class="toast" id="toast" hidden role="status"></div>
+        <button class="moth" id="moth" type="button" hidden aria-label="Motte fangen"></button>
+        <div class="sr-only" id="announce" aria-live="assertive"></div>
+
+        <button class="desk" data-panel="logbuch"><span>Logbuch</span></button>
+        <button class="desk" data-panel="werkstatt"><span>Werkstatt</span></button>
+        <button class="desk" data-panel="apparate"><span>Apparate</span></button>
+        <button class="desk" data-panel="fabrik"><span>Fabrik</span></button>
+      </div>
+
+      <div class="scrim" id="scrim" hidden></div>
+      <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+        <header class="sheet__head">
+          <h2 id="sheet-title">Werkstatt</h2>
+          <span class="sheet__funken" id="sheet-funken"></span>
+          <button class="iconbtn iconbtn--dark" id="sheet-close" aria-label="Schließen">✕</button>
+        </header>
+        <div class="sheet__body" id="sheet-body"></div>
+      </section>
+
+      <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal__card">
+          <p class="kicker" id="modal-kicker"></p>
+          <h2 id="modal-title"></h2>
+          <div id="modal-body"></div>
+          <div class="modal__actions" id="modal-actions"></div>
+        </div>
+      </section>
+      <div class="intro" id="intro" hidden>
+        <canvas class="intro__noise" id="intro-noise" width="54" height="96"></canvas>
+        <div class="intro__lines" id="intro-lines"></div>
+        <div class="intro__title" id="intro-title" hidden>
+          <h1 class="logo" id="logo">
+            <span class="logo__glow" aria-hidden="true"></span>
+            <span class="logo__base"></span>
+            <span class="logo__shine" aria-hidden="true"></span>
+            <i class="logo__spark" style="--x: 4%; --y: 6%; --d: 0.2s"></i>
+            <i class="logo__spark" style="--x: 34%; --y: -4%; --d: 1.5s"></i>
+            <i class="logo__spark" style="--x: 57%; --y: 8%; --d: 2.6s"></i>
+            <i class="logo__spark" style="--x: 79%; --y: -6%; --d: 0.9s"></i>
+            <i class="logo__spark" style="--x: 97%; --y: 34%; --d: 3.3s"></i>
+          </h1>
+          <p></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
