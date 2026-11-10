@@ -4,7 +4,7 @@
 // - assets/ (Dateinamen mit Prüfsumme, ändern sich nie): erst Speicher
 // - alles andere (Musik, Symbole): aus dem Speicher, im Hintergrund auffrischen; liegt in einem
 //   eigenen Speicher, der Updates überlebt (die Musik soll nicht jedes Mal neu geladen werden)
-const CACHE = 'mm-2026-11-10T16:25:23.391Z'; // beim Build ersetzt (vite.config.ts); alte Versionen räumt activate weg
+const CACHE = 'mm-2026-11-10T16:28:30.115Z'; // beim Build ersetzt (vite.config.ts); alte Versionen räumt activate weg
 const MEDIA = 'mm-media';
 
 // Beim Installieren gleich Seite, Skript, Stil und Symbole holen: so läuft die neue Version
@@ -12,7 +12,7 @@ const MEDIA = 'mm-media';
 self.addEventListener('install', (e) => e.waitUntil((async () => {
   const cache = await caches.open(CACHE);
   try {
-    const page = await fetch('./', { cache: 'no-store' });
+    const page = await fetch(`./?_v=${Date.now()}`, { cache: 'no-store' });
     const html = await page.clone().text();
     await cache.put('./', page);
     const files = [...html.matchAll(/(?:src|href)="\.\/([^"]+)"/g)].map((m) => './' + m[1]);
@@ -51,7 +51,10 @@ self.addEventListener('fetch', (e) => {
 async function networkFirst(req) {
   const cache = await caches.open(CACHE);
   try {
-    const res = await fetch(req, { cache: 'no-store' });
+    // Zeitstempel anhängen: so liefert auch der Zwischenspeicher von GitHub (bis 10 Min.) sicher die neue Seite
+    const url = new URL(req.url);
+    url.searchParams.set('_v', String(Date.now()));
+    const res = await fetch(url.href, { cache: 'no-store', credentials: 'same-origin' });
     if (res.ok) cache.put(req, res.clone());
     return res;
   } catch {
