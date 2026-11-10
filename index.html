@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="./icons/favicon.png" />
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <title>Mystery Machine</title>
-    <script type="module" crossorigin src="./assets/index-CBApl5xs.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CM3SqGhI.css">
+    <script type="module" crossorigin src="./assets/index-CGG3jb5k.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B40LyrV1.css">
   </head>
   <body>
     <main id="stage" aria-label="Mystery Machine">
@@ -45,7 +45,8 @@
 
         <div class="ns-tag" id="ns-tag" role="group" aria-label="Notschalter" hidden>
           <p class="ns-tag__msg" id="ns-msg"></p>
-          <p class="ns-tag__row"><span>Einsatz <b id="ns-stake">0</b></span><span>Erfolg <b id="ns-chance">60 %</b></span></p>
+          <p class="ns-tag__signal"><i class="ns-lamp" aria-hidden="true"></i><b id="ns-signal">Gelb</b></p>
+          <p class="ns-tag__row"><span>Einsatz <b id="ns-stake">0</b></span><span>Chance <b id="ns-chance">60 %</b></span><span>Gewinn <b id="ns-payout">×1,5 bis ×7</b></span></p>
           <div class="ns-tag__foot">
             <span class="ns-tag__hint" id="ns-hint">Erst Klappe, dann Knopf</span>
             <span class="ns-tag__fuse" aria-hidden="true"><span id="ns-fuse"></span></span>
@@ -78,6 +79,13 @@
       </section>
 
       <div class="toast" id="toast" hidden role="status"></div>
+      <section class="fview" id="fview" role="dialog" aria-modal="true" aria-labelledby="fview-title" hidden>
+        <div class="fview__card">
+          <header class="fview__head"><h2 id="fview-title">Fertigungshalle</h2><button class="iconbtn iconbtn--dark" id="fview-close" aria-label="Schließen">×</button></header>
+          <canvas class="fview__canvas" id="fview-canvas" width="216" height="260" role="img" aria-label="Die Fertigungshalle von schräg oben mit vier Fließbändern"></canvas>
+          <ul class="fview__legend" id="fview-legend"></ul>
+        </div>
+      </section>
       <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal__card">
           <p class="kicker" id="modal-kicker"></p>
