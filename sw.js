@@ -4,7 +4,7 @@
 // - assets/ (Dateinamen mit Prüfsumme, ändern sich nie): erst Speicher
 // - alles andere (Musik, Symbole): aus dem Speicher, im Hintergrund auffrischen; liegt in einem
 //   eigenen Speicher, der Updates überlebt (die Musik soll nicht jedes Mal neu geladen werden)
-const CACHE = 'mm-2026-11-10T16:17:44.839Z'; // beim Build ersetzt (vite.config.ts); alte Versionen räumt activate weg
+const CACHE = 'mm-2026-11-10T16:25:23.391Z'; // beim Build ersetzt (vite.config.ts); alte Versionen räumt activate weg
 const MEDIA = 'mm-media';
 
 // Beim Installieren gleich Seite, Skript, Stil und Symbole holen: so läuft die neue Version
