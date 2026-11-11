@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" href="./icons/favicon.png" />
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <title>Mystery Machine</title>
-    <script type="module" crossorigin src="./assets/index-B-S4A3LT.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DUl3SFop.css">
+    <script type="module" crossorigin src="./assets/index-i9VBfHN7.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cm41czD3.css">
   </head>
   <body>
     <main id="stage" aria-label="Mystery Machine">
@@ -57,7 +57,7 @@
         <button class="plan" id="plan" type="button" hidden></button>
         <div class="plan-list" id="plan-list" hidden></div>
         <div class="boost" id="boost" hidden></div>
-        <button class="post" id="post" type="button" hidden aria-label="Rohrpost öffnen"></button>
+        <button class="post" id="post" type="button" hidden aria-label="Kapselautomat"></button>
         <button class="moth" id="moth" type="button" hidden aria-label="Motte fangen"></button>
         <div class="sr-only" id="announce" aria-live="assertive"></div>
 
@@ -83,6 +83,13 @@
           <header class="fview__head"><h2 id="fview-title">Fertigungshalle</h2><button class="iconbtn iconbtn--dark" id="fview-close" aria-label="Schließen">×</button></header>
           <canvas class="fview__canvas" id="fview-canvas" width="216" height="260" role="img" aria-label="Die Fertigungshalle von schräg oben mit vier Fließbändern"></canvas>
           <ul class="fview__legend" id="fview-legend"></ul>
+        </div>
+      </section>
+      <section class="fview kview" id="kapsel" role="dialog" aria-modal="true" aria-labelledby="kapsel-title" hidden>
+        <div class="fview__card">
+          <header class="fview__head"><h2 id="kapsel-title">Kapselautomat</h2><button class="iconbtn iconbtn--dark" id="kapsel-close" aria-label="Schließen">×</button></header>
+          <canvas class="fview__canvas" id="kapsel-canvas" width="216" height="260" role="img" aria-label="Der Kapselautomat mit Glücksrad, Glaskugel, Kurbel und Ausgabefach"></canvas>
+          <div class="kview__foot"><p class="kview__msg" id="kapsel-msg" aria-live="polite"></p><button class="btn kview__btn" id="kapsel-btn" type="button" hidden></button></div>
         </div>
       </section>
       <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
